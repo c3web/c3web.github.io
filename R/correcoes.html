@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <h1>Projeto de Análise de Sentimentos em Redes Sociais</h1>
+
+    <h2>Soluções para os problemas de acentuação</h2>
+	
+	<p><b>- Primeira alteração:</b></p>
+	<p>Onde se coleta os tweets, colocar o (<code>lang = "en"</code>) para tratar o idioma específico em inglês.</p>
+    <p>Ex.: <code>tweetData = searchTwitter("#BigData", n = 100, lang = "en")</code></p>
+	<p>Para posts em português, utilizar "pt": (<code>lang = "pt"</code>)</p>
+	</br>
+	<p><b>- Segunda alteração:</b></p>
+	<p>Para converter os caracteres para "UTF-8", utilizar o seguinte código:</p>
+	<p>Ex.: <code>tweetcorpus <- tm_map(tweetcorpus, function(x) iconv(enc2utf8(x), sub = "byte"))</code></p>
+	</br>
+	<p><b>- Terceira alteração:</b></p>
+	<p>Em alguns casos, o <b>wordcloud</b> está dando erro em uma função interna ("simple_triplet_matrix").</p>
+	<p>Eu resolvi passando o corpus novamente pela função Corpus:</p>
+	<p>Utilizar esse código antes da função <b>wordcloud</b></p>
+	<p>Ex.: <code>tweetcorpus <- Corpus(VectorSource(tweetcorpus))</code></p>
+	</br>
+	<p>Com isso conseguimos "rodar" o código até esta parte.</p>
+	<img src="../assets/R/wordcloud_bigdata_twitter.png">Worcloud gerado com R</img>
+</body>
+</html>
